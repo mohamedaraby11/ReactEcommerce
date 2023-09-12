@@ -13,7 +13,7 @@ export default function Register() {
   let validation  =  Yup.object({
     name:Yup.string().required('Name is required').min(3, ' Name Min Length iS 3').max(10, 'Name Max length is 10'),
     email:Yup.string().required('Email is required').email('Email is Invalid'),
-    password:Yup.string().required('Password is required').matches(/^[A-Z][a-z0-9]{5-10}$/, 'Password Must Start With upperCase and so on'),
+    password:Yup.string().required('Password is required').matches(/^[A-Z][a-z0-9]{5,10}$/, 'Password Must Start With upperCase and so on'),
     rePassword:Yup.string().required('RePassword is required').oneOf([Yup.ref('password')], ' Password And RePassword Doesnot Match '),
     phone:Yup.string().required('Phone is required').matches(/^01[0125][0-9]{8}$/, 'Phone Must be an Egyptian Number '),
   })
@@ -60,7 +60,7 @@ export default function Register() {
 
 
       <label htmlFor='rePassword'> RePassword </label>
-      <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.rePassword} type='rePassword' name='rePassword' id='rePassword' />
+      <input onBlur={formik.handleBlur} className='form-control mb-2' onChange={formik.handleChange} value={formik.values.rePassword} type='password' name='rePassword' id='rePassword' />
       {formik.errors.rePassword && formik.touched.rePassword? <div className='alert alert-danger'>{formik.errors.rePassword}</div>
         : null}
 
@@ -69,7 +69,7 @@ export default function Register() {
       {formik.errors.phone && formik.touched.phone? <div className='alert alert-danger'>{formik.errors.phone}</div>
         : null}
 
-      <button onBlur={formik.handleBlur} type='submit' className='btn bg-main text-white'>Register </button>
+      <button disabled={!(formik.isValid && formik.dirty)} onBlur={formik.handleBlur} type='submit' className='btn bg-main text-white'>Register </button>
 
 
     </form>
