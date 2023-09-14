@@ -10,10 +10,21 @@ import About from "../src/components/About/About"
 import Categories from "../src/components/Categories/Categories"
 import NotFound from "../src/components/NotFound/NotFound"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
+import jwtDecode from 'jwt-decode';
 function App() {
 
+  const [userData , setUserData] = useState(null)
+
+  function saveUserDAta(){
+    let encodedToken = localStorage.getItem('userToken');
+    let decodedTokenn = jwtDecode(encodedToken)
+    setUserData(decodedTokenn)
+
+  }
+
   let routers = createBrowserRouter([
-    {path:'', element:<Layout/> , children:[
+    {path:'', element:<Layout userData={userData}/> , children:[
       {index:true , element:<Home/>},
       {path:'products' , element:<Products/>},
       {path:'cart' , element:<Cart/>},
@@ -22,7 +33,7 @@ function App() {
       {path:'about' , element:<About/>},
 
       {path:'register' , element:<Register/>},
-      {path:'login' , element:<Login/>},
+      {path:'login' , element:<Login saveUserDAta ={saveUserDAta}/>},
       {path:'*' , element:<NotFound/>},
     ]}
   ])

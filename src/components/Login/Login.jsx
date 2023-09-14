@@ -6,7 +6,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-export default function Login() {
+export default function Login({saveUserDAta}) {
+
   let navigate = useNavigate();
   const [isloading, setisLoading] = useState(false)
   const [messageError , setMessageError] = useState('')
@@ -19,6 +20,8 @@ export default function Login() {
 
     })
     if (data.message === 'success') {
+      localStorage.setItem('userToken',data.token )
+      saveUserDAta()
       setisLoading(false)
       navigate('/')
 

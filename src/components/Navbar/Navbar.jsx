@@ -2,7 +2,7 @@ import React from 'react'
 import style from './Navbar.module.css'
 import myLogo from '../../finalProject assets/freshcart-logo.svg'
 import { Link } from 'react-router-dom'
-export default function Navbar() {
+export default function Navbar({userData}) {
   return <>
            <nav className="navbar navbar-expand-sm navbar-light bg-light">
                   <div className="container">
@@ -14,25 +14,27 @@ export default function Navbar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+
+                        {userData !==null ?         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                           
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="cart">Carts</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="products">Products</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="categories">Categories</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="brands">Brands</Link>
-                            </li>
-                            
-                        </ul>
+                          <li className="nav-item">
+                              <Link className="nav-link" to="/">Home</Link>
+                          </li>
+                          <li className="nav-item">
+                              <Link className="nav-link" to="cart">Carts</Link>
+                          </li>
+                          <li className="nav-item">
+                              <Link className="nav-link" to="products">Products</Link>
+                          </li>
+                          <li className="nav-item">
+                              <Link className="nav-link" to="categories">Categories</Link>
+                          </li>
+                          <li className="nav-item">
+                              <Link className="nav-link" to="brands">Brands</Link>
+                          </li>
+                          
+                      </ul> : null }
+                
                         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                           
                             <li className="nav-item d-flex align-items-center">
@@ -43,15 +45,17 @@ export default function Navbar() {
                                 <i className="fab fa-linkedin mx-2" href="#"></i>
                                 <i className="fab fa-youtube mx-2" href="#"></i>
                             </li>
-                            <li className="nav-item">
+
+                            {userData === null ? <> <li className="nav-item">
                                 <Link className="nav-link" to="login">Login</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="register">Register</Link>
-                            </li>
-                            <li className="nav-item">
+                            </li> </> :   <li className="nav-item">
                                 <Link className="nav-link" to="#">Logout</Link>
-                            </li>
+                            </li> }
+                           
+                          
                    
                             
                         </ul>
