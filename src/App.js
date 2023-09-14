@@ -9,7 +9,7 @@ import Login from "../src/components/Login/Login"
 import About from "../src/components/About/About"
 import Categories from "../src/components/Categories/Categories"
 import NotFound from "../src/components/NotFound/NotFound"
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -24,8 +24,16 @@ function App() {
 
   }
 
+  function handleLogout(){
+    // Remove UserToken From Local Storage
+    localStorage.removeItem('userToken');
+
+    setUserData(null)
+
+  }
+
   let routers = createBrowserRouter([
-    {path:'', element:<Layout userData={userData}/> , children:[
+    {path:'', element:<Layout handleLogout={handleLogout} userData={userData}/> , children:[
       {index:true , element:<ProtectedRoute><Home/></ProtectedRoute>},
       {path:'products' , element:<ProtectedRoute><Products/></ProtectedRoute>},
       {path:'cart' , element:<ProtectedRoute><Cart/></ProtectedRoute>},

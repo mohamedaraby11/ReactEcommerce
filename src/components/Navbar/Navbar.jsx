@@ -2,7 +2,7 @@ import React from 'react'
 import style from './Navbar.module.css'
 import myLogo from '../../finalProject assets/freshcart-logo.svg'
 import { Link } from 'react-router-dom'
-export default function Navbar({userData}) {
+export default function Navbar({userData, handleLogout}) {
   return <>
            <nav className="navbar navbar-expand-sm navbar-light bg-light">
                   <div className="container">
@@ -52,7 +52,7 @@ export default function Navbar({userData}) {
                             <li className="nav-item">
                                 <Link className="nav-link" to="register">Register</Link>
                             </li> </> :   <li className="nav-item">
-                                <Link className="nav-link" to="#">Logout</Link>
+                                <Link className="nav-link" to="/" onClick={handleLogout}>Logout</Link>
                             </li> }
                            
                           
