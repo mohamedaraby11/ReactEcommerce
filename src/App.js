@@ -12,6 +12,7 @@ import NotFound from "../src/components/NotFound/NotFound"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
 import jwtDecode from 'jwt-decode';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 function App() {
 
   const [userData , setUserData] = useState(null)
@@ -25,12 +26,11 @@ function App() {
 
   let routers = createBrowserRouter([
     {path:'', element:<Layout userData={userData}/> , children:[
-      {index:true , element:<Home/>},
-      {path:'products' , element:<Products/>},
-      {path:'cart' , element:<Cart/>},
-      {path:'categories' , element:<Categories/>},
-      {path:'products' , element:<Products/>},
-      {path:'about' , element:<About/>},
+      {index:true , element:<ProtectedRoute><Home/></ProtectedRoute>},
+      {path:'products' , element:<ProtectedRoute><Products/></ProtectedRoute>},
+      {path:'cart' , element:<ProtectedRoute><Cart/></ProtectedRoute>},
+      {path:'categories' , element:<ProtectedRoute><Categories/></ProtectedRoute>},
+      {path:'about' , element:<ProtectedRoute><About/></ProtectedRoute>},
 
       {path:'register' , element:<Register/>},
       {path:'login' , element:<Login saveUserDAta ={saveUserDAta}/>},
