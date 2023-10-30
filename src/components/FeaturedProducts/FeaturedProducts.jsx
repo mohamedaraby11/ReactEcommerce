@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from './FeaturedProducts.module.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 export default function FeaturedProducts() {
   const [products,setProducts] = useState([])
@@ -16,6 +17,7 @@ export default function FeaturedProducts() {
 
   <div className='row'>
     {products.map((product)=> <div key={product._id} className='col-md-2'>
+    <Link to={`/productsdetials/${product._id}`}>
     <div className='product px-2 py-4 cursor-pointer'>
       <img className='w-100' src={product.imageCover} alt=''/>
       <span className='text-main fw-bolder font-sm'>{product.category.name}</span>
@@ -30,6 +32,9 @@ export default function FeaturedProducts() {
         </div>
         <button className='btn bg-main text-white w-100'>+ Add</button>
     </div>
+    </Link>
+
+
     </div>
     )}
   </div>

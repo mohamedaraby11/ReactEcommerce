@@ -7,6 +7,7 @@ import Products from "../src/components/Products/Products"
 import Register from "../src/components/Register/Register"
 import Login from "../src/components/Login/Login"
 import About from "../src/components/About/About"
+import ProductDetials from "../src/components/ProductDetails/ProductDetails"
 import Categories from "../src/components/Categories/Categories"
 import NotFound from "../src/components/NotFound/NotFound"
 import { RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom';
@@ -39,6 +40,7 @@ function App() {
       {path:'cart' , element:<ProtectedRoute><Cart/></ProtectedRoute>},
       {path:'categories' , element:<ProtectedRoute><Categories/></ProtectedRoute>},
       {path:'about' , element:<ProtectedRoute><About/></ProtectedRoute>},
+      {path:'productsdetials/:id' , element:<ProtectedRoute><ProductDetials/></ProtectedRoute>},
 
       {path:'register' , element:<Register/>},
       {path:'login' , element:<Login saveUserDAta ={saveUserDAta}/>},
