@@ -37,7 +37,6 @@ export default function CategorySlider() {
           </div>
         ))}
       </Slider>
-      <h2>CategorySlider</h2>
     </>
   );
 }

@@ -30,7 +30,7 @@ export default function FeaturedProducts() {
         </span>
 
         </div>
-        <button className='btn bg-main text-white w-100'>+ Add</button>
+        <button className='btn bg-main text-white w-100'><i className="fa-solid fa-cart-plus"></i></button>
     </div>
     </Link>
 

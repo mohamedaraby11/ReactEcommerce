@@ -3,7 +3,12 @@ import style from './Footer.module.css'
 export default function Footer() {
   return <>
 
-        <h2>Footer</h2>
+      <div className='container'>
+        <div className='d-flex justify-content-center align-content-center'>
+        &copy; <em id="date"></em>FreshCart
+        </div>
+      </div>
+
     </>
   
 }
