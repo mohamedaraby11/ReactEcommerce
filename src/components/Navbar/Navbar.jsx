@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import style from './Navbar.module.css'
 import myLogo from '../../finalProject assets/freshcart-logo.svg'
 import { Link } from 'react-router-dom'
@@ -18,7 +18,7 @@ export default function Navbar({userData, handleLogout}) {
                         {userData !==null ?         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                           
                           <li className="nav-item">
-                              <Link className="nav-link" to="/">Home</Link>
+                              <Link className="nav-link" to="/">Home </Link>
                           </li>
                           <li className="nav-item">
                               <Link className="nav-link" to="cart">Carts</Link>

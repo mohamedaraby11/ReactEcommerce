@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Products.module.css";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
+import { counterContext } from "../../Context/CounterCountext";
+
+
 export default function Products() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {

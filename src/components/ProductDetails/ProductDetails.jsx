@@ -60,7 +60,7 @@ export default function ProductDetails() {
               <p>Quantity: {productsDetails.quantity}</p>
               <p>Price: {productsDetails.price}</p>
               <p>Rate: {productsDetails.ratingsAverage}</p>
-              <button className="btn bg-main text-white w-100">Add To Cart<i class="px-2 fa-solid fa-cart-plus"></i></button>
+              <button className="btn bg-main text-white w-100">Add To Cart<i className="px-2 fa-solid fa-cart-plus"></i></button>
             </div>
           </div>
         </div>
